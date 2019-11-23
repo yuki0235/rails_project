@@ -7,7 +7,7 @@ div
 		h1.font-weight-bolder style='text-align: center;'
 			= link_to "使用者一覧", users_path
 
-			input.float-right.btn.btn-outline-success type="button" value="使用者を追加" style='vertical-align: bottom!important;'
+			input.float-right.btn.btn-outline-success type="button" value="使用者を追加" style='vertical-align: bottom;'
 
 		table.table.table-hover cellspacing="15"
 			thead.thead-dark
@@ -31,4 +31,6 @@ div
 							input.btn.btn-outline-primary id=u.id type="button" value="編集"
 						td
 							input.btn.btn-outline-danger id=u.id type="button" value="削除"
+
+		= paginate @users
 
