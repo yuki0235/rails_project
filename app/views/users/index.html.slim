@@ -1,0 +1,34 @@
+div
+	.container
+		- flash.each do | message_type, message |
+			div class="alert-hide alert alert-#{message_type}" role="alert" style='text-align: center;'
+				= message
+
+		h1.font-weight-bolder style='text-align: center;'
+			= link_to "使用者一覧", users_path
+
+			input.float-right.btn.btn-outline-success type="button" value="使用者を追加" style='vertical-align: bottom!important;'
+
+		table.table.table-hover cellspacing="15"
+			thead.thead-dark
+				tr
+					th scope="col" ID
+					th scope="col" 名前
+					th scope="col" 生年月日
+					th scope="col" メールアドレス
+					th scope="col" 登校日
+					th scope="col" 更新日
+			tbody
+				- @users.each do |u|
+					tr
+						td = link_to u.id, user_path(u.id)
+						td = u.name
+						td = u.birthday
+						td = u.email
+						td = u.created_at.strftime("%Y-%m-%d %H:%M:%S")
+						td = u.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+						td
+							input.btn.btn-outline-primary id=u.id type="button" value="編集"
+						td
+							input.btn.btn-outline-danger id=u.id type="button" value="削除"
+

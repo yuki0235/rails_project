@@ -1,0 +1,23 @@
+= form_with model: @user, local: true do |f|
+	- if @user.errors.any? 
+		ul
+  		- @user.errors.full_messages.each do |message|
+    		li.alert.alert-danger role="alert"
+    			= message
+
+	ul.form
+		= f.label :name, "氏名"
+		li.form
+			= f.text_field :name
+
+		= f.label :birthday, "生年月日"
+		li.form			
+			= f.text_field :birthday
+
+		= f.label :email, "メールアドレス"
+		li.form
+			= f.text_field :email
+		
+		.form-btn
+			= f.submit "登録"
+		input.form-back-btn type='button' value='戻る'

@@ -1,0 +1,27 @@
+div
+	.container
+		h1.font-weight-bolder style='text-align: center;'
+			= link_to "使用者情報", users_path
+
+		table.table.table-hover cellspacing="15"
+			thead.thead-dark
+				tr
+					th scope="col" ID
+					th scope="col" 名前
+					th scope="col" 生年月日
+					th scope="col" メールアドレス
+					th scope="col" 登校日
+					th scope="col" 更新日
+			tbody
+				tr
+					td = @user.id
+					td = @user.name
+					td = @user.birthday
+					td = @user.email
+					td = @user.created_at.strftime("%Y-%m-%d %H:%M:%S")
+					td = @user.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+					td
+						input.btn.btn-outline-primary id=@user.id type="button" value="編集"
+					td
+						input.btn.btn-outline-danger id=@user.id type="button" value="削除"
+

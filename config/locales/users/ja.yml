@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      user: イベント
+    attributes:
+      user:
+        name: "氏名"
+        birthday: "生年月日"
+        email: "メールアドレス"
