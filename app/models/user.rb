@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	before_save :last_name_and_first_name
+	before_save :convert_name
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true
@@ -25,9 +25,15 @@ class User < ApplicationRecord
 		
 	end
 
+	def convert_date(date)
+		Date.parse(date).strftime('%Y月%m月%d日')
+	end
+
 	private
 
-	def last_name_and_first_name
+	def convert_name
 		self.name = [last_name, first_name].join(' ')
 	end
+
+
 end

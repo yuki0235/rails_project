@@ -8,15 +8,24 @@
 	ul.form
 		= f.label :last_name, "苗字"
 		li.form
-			= f.text_field :last_name, value: @user.name.split(' ').first, class: 'text-center'
+			- if @user.name
+				= f.text_field :last_name, value: @user.name.split(' ').first, class: 'text-center'
+			- else
+				= f.text_field :last_name, class: 'text-center'
 
 		= f.label :first_name, "名前"
-		li.form
-			= f.text_field :first_name, value: @user.name.split(' ').last, class: 'text-center'
+			li.form
+				- if @user.name
+					= f.text_field :first_name, value: @user.name.split(' ').last, class: 'text-center'
+				- else
+					= f.text_field :first_name, class: 'text-center'
 
 		= f.label :birthday, "生年月日"
-		li.form			
-			= f.text_field :birthday, class: 'text-center'
+		li.form
+			- if @user.birthday
+				= f.date_field :birthday, type: 'date', class: 'text-center', value: @user.birthday
+			- else
+				= f.date_field :birthday, type: 'date', class: 'text-center'
 
 		= f.label :email, "メールアドレス"
 		li.form

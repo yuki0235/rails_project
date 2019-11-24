@@ -13,17 +13,17 @@ div
 			thead.thead-dark
 				tr
 					th scope="col" ID
-					th scope="col" 名前
+					th scope="col" 氏名
 					th scope="col" 生年月日
 					th scope="col" メールアドレス
-					th scope="col" 登校日
+					th scope="col" 登録日
 					th scope="col" 更新日
 			tbody
 				- @users.each do |u|
 					tr
 						td = link_to u.id, user_path(u.id)
 						td = u.name
-						td = u.birthday
+						td = u.convert_date(u.birthday)
 						td = u.email
 						td = u.created_at.strftime("%Y-%m-%d %H:%M:%S")
 						td = u.updated_at.strftime("%Y-%m-%d %H:%M:%S")
