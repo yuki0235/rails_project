@@ -1,9 +1,11 @@
 ja:
   activerecord:
     models:
-      user: イベント
+      user: ユーザー
     attributes:
       user:
+        first_name: "名前"
+        last_name: "苗字"
         name: "氏名"
         birthday: "生年月日"
         email: "メールアドレス"
